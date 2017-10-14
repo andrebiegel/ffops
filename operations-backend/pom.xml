@@ -10,7 +10,7 @@
 	<name>backend</name>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.9</maven.compiler.target>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 	</properties>
 	<description>jax rs backend jee 8</description>
