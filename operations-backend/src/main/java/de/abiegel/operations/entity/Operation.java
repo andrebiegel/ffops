@@ -17,5 +17,37 @@ public class Operation {
 		this.id = id;
 	}
 
+	public String getHeading() {
+		return heading;
+	}
+
+	public void setHeading(String heading) {
+		this.heading = heading;
+	}
+
+	public String getAlertingMessage() {
+		return alertingMessage;
+	}
+
+	public void setAlertingMessage(String alertingMessage) {
+		this.alertingMessage = alertingMessage;
+	}
+
+	public ZonedDateTime getStart() {
+		return start;
+	}
+
+	public void setStart(ZonedDateTime start) {
+		this.start = start;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 
 }
