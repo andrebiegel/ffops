@@ -2,9 +2,12 @@ package com.github.ffops.operations.entity;
 
 import java.time.ZonedDateTime;
 
+import javax.json.bind.annotation.JsonbProperty;
+
 public class Operation {
 
 	private String heading;
+	@JsonbProperty("message")
 	private String alertingMessage;
 	private ZonedDateTime start;
 	private String id;

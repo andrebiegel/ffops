@@ -15,6 +15,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
+import org.eclipse.microprofile.metrics.annotation.Metered;
+
 import com.github.ffops.operations.entity.Operation;
 
 @Path("operation")
@@ -29,11 +31,13 @@ public class OperationsResource {
 	ManagedExecutorService executor; 
 	
 	@GET
+	@Metered
 	public List<Operation> currentOperations(){
 		return store;
 	}
 	
 	@PUT
+	@Metered
 	public CompletionStage<Operation> add(Operation operation) {
 		return null;
 		//return this.incomingOperation.fireAsync("42", NotificationOptions.ofExecutor(executor)).thenAccept(id -> storeElement (id,operation));

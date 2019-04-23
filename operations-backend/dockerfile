@@ -1,6 +1,6 @@
 FROM abiegel/payara:5.182
 
-ENV ARCHIVE_NAME ${project.artifactId}.war
-COPY ${project.artifactId}.war ${DEPLOYMENT_DIR}	
+ENV ARCHIVE_NAME operations-backend.war
+COPY target/operations-backend.war ${DEPLOYMENT_DIR}	
 
 
