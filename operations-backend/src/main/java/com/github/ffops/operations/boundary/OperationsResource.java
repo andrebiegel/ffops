@@ -1,4 +1,4 @@
-package de.abiegel.operations.boundary;
+package com.github.ffops.operations.boundary;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
-import de.abiegel.operations.entity.Operation;
+import com.github.ffops.operations.entity.Operation;
 
 @Path("operation")
 public class OperationsResource {

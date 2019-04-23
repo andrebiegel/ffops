@@ -1,4 +1,4 @@
-package de.abiegel.operations.boundary;
+package com.github.ffops.operations.boundary;
 
 import static org.junit.jupiter.api.Assertions.*;
 

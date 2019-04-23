@@ -1,4 +1,4 @@
-package de.abiegel.operations.entity;
+package com.github.ffops.operations.entity;
 
 import java.time.ZonedDateTime;
 
