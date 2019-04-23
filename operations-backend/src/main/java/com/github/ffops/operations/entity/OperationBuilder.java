@@ -6,7 +6,7 @@ public class OperationBuilder {
 	private String heading;
 	private String alertingMessage;
 	private ZonedDateTime start;
-	private Integer id;
+	private String id;
 
 	public OperationBuilder withHeading(String heading) {
 		this.heading = heading;
@@ -23,7 +23,7 @@ public class OperationBuilder {
 		return this;
 	}
 
-	public OperationBuilder withId(Integer id) {
+	public OperationBuilder withId(String id) {
 		this.id = id;
 		return this;
 	}

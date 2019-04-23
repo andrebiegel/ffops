@@ -7,9 +7,9 @@ public class Operation {
 	private String heading;
 	private String alertingMessage;
 	private ZonedDateTime start;
-	private Integer id;
+	private String id;
 
-	Operation(String heading, String alertingMessage, ZonedDateTime start, Integer id) {
+	Operation(String heading, String alertingMessage, ZonedDateTime start, String id) {
 		super();
 		this.heading = heading;
 		this.alertingMessage = alertingMessage;
@@ -41,11 +41,11 @@ public class Operation {
 		this.start = start;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
