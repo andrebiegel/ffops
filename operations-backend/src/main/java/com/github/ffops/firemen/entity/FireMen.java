@@ -6,7 +6,7 @@ public class FireMen {
 		return new FireMen(name, id, groupleader, scba);
 	}
 	private String name; 
-	private String id; 
+	private String personalNumber; 
 	private boolean groupleader; 
 	//can he use self-contained breathing apparatus at the moment ? 
 	private boolean scba;
@@ -15,7 +15,7 @@ public class FireMen {
 		return name;
 	}
 	public String getId() {
-		return id;
+		return personalNumber;
 	}
 	public boolean isGroupleader() {
 		return groupleader;
@@ -26,7 +26,7 @@ public class FireMen {
 	private FireMen(String name, String id, boolean groupleader, boolean scba) {
 		super();
 		this.name = name;
-		this.id = id;
+		this.personalNumber = id;
 		this.groupleader = groupleader;
 		this.scba = scba;
 	}

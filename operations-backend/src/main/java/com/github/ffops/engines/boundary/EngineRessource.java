@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 import com.github.ffops.engines.entity.Engine;
 
 
-@Path("engine")
+@Path("/engine")
 @Produces(MediaType.APPLICATION_JSON)
 public class EngineRessource {
 

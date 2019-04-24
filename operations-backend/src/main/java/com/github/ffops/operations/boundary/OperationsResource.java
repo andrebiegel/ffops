@@ -6,7 +6,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import javax.annotation.Resource;
-import javax.annotation.processing.Completion;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.NotificationOptions;
@@ -19,37 +18,42 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.metrics.annotation.Metered;
 
+import com.github.ffops.operations.control.OperationStore;
+import com.github.ffops.operations.control.Unmanaged;
 import com.github.ffops.operations.entity.Operation;
 
-@Path("operation")
+@Path("/operation")
 @Produces(MediaType.APPLICATION_JSON)
 public class OperationsResource {
-	
-	private List<Operation> store = new ArrayList<>();
-	
+
 	@Inject
-	Event<String> incomingOperation; 
-	
+	@Unmanaged
+	Event<Operation> incomingOperation;
+
+	@Inject
+	OperationStore store;
+
+	@Inject
+	OperationsFactory factory;
+
 	@Resource
-	ManagedExecutorService executor; 
-	
+	ManagedExecutorService executor;
+
 	@GET
 	@Metered
-	public List<Operation> currentOperations(){
-		return store;
-	}
-	
-	@PUT
-	@Metered
-	
-	public CompletionStage<Operation> add(Operation operation) {
-		return null;
-		//return this.incomingOperation.fireAsync("42", NotificationOptions.ofExecutor(executor)).thenAccept(id -> storeElement (id,operation));
+	public CompletionStage<List<Operation>> operations() {
+		return CompletableFuture.supplyAsync(store::operations, executor);
 	}
 
-	private Operation storeElement(String id, Operation operation) {
-		// TODO Auto-generated method stub
-		return null;
+	@PUT
+	@Metered
+	public CompletionStage<Void> add(Operation operation) {
+		return this.incomingOperation.fireAsync(factory.initialize(operation), NotificationOptions.ofExecutor(executor))
+				.thenAccept(this::storeElement);
 	}
-	
+
+	private void storeElement(Operation operation) {
+		this.store.store(operation);
+	}
+
 }
