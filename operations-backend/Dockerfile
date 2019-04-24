@@ -1,6 +1,6 @@
 FROM airhacks/payara:5.184
 
-ENV ARCHIVE_NAME operations-backend.war
-COPY target/operations-backend.war ${DEPLOYMENT_DIR}	
+ENV ARCHIVE_NAME operations-management.war
+COPY target/operations-management.war ${DEPLOYMENT_DIR}	
 
 
