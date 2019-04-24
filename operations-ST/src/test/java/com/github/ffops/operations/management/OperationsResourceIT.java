@@ -20,9 +20,12 @@ public class OperationsResourceIT {
 	public void init() {
 
 		this.client = ClientBuilder.newClient();
-		this.tut = this.client.target("http:localhost:8080/");
+		this.tut = this.client.target("http:localhost:8080/operations-management/resources/operation");
 	}
 
+	/**
+	 * Is Empty after startup
+	 */
 	@Test
 	public void getAll() {
 		JsonArray elements = this.tut.request(MediaType.APPLICATION_JSON).get(JsonArray.class);

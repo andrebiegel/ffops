@@ -23,7 +23,7 @@ import com.github.ffops.operations.control.UnitReleaseStatusStore;
 import com.github.ffops.operations.entity.Participation;
 import com.github.ffops.operations.entity.UnitReleaseStatus;
 
-@Path("/releaseStatus")
+@Path("/release-status")
 @Produces(MediaType.APPLICATION_JSON)
 public class UnitReleaseStatusResource {
 
