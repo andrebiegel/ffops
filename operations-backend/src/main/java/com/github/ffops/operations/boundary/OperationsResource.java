@@ -14,12 +14,15 @@ import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.metrics.annotation.Metered;
 
 import com.github.ffops.operations.entity.Operation;
 
 @Path("operation")
+@Produces(MediaType.APPLICATION_JSON)
 public class OperationsResource {
 	
 	private List<Operation> store = new ArrayList<>();
@@ -38,6 +41,7 @@ public class OperationsResource {
 	
 	@PUT
 	@Metered
+	
 	public CompletionStage<Operation> add(Operation operation) {
 		return null;
 		//return this.incomingOperation.fireAsync("42", NotificationOptions.ofExecutor(executor)).thenAccept(id -> storeElement (id,operation));
