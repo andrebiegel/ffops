@@ -1,6 +1,5 @@
 package com.github.ffops.operations.boundary;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -45,6 +44,7 @@ public class OperationsResource {
 		return CompletableFuture.supplyAsync(store::operations, executor);
 	}
 
+	
 	@PUT
 	@Metered
 	public CompletionStage<Void> add(Operation operation) {

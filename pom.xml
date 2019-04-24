@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.abiegel.operations</groupId>
-	<artifactId>operations-management</artifactId>
+	<groupId>com.github.andrebiegel.ffops</groupId>
+	<artifactId>ffops</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<properties>
@@ -11,17 +11,33 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.jupiter.version>5.4.2</junit.jupiter.version>
 	</properties>
 	<modules>
 		<module>operations-backend</module>
 		<module>operations-app</module>
+		<module>operations-ST</module>
 	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter</artifactId>
+				<version>${junit.jupiter.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.airhacks</groupId>
+				<artifactId>jaxrs-cors</artifactId>
+				<version>0.0.2</version>
+				<scope>compile</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>com.airhacks</groupId>
 			<artifactId>jaxrs-cors</artifactId>
-			<version>0.0.2</version>
-			<scope>compile</scope>
 		</dependency>
 	</dependencies>
 </project>
