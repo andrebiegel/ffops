@@ -10,6 +10,7 @@ import javax.enterprise.event.Event;
 import javax.enterprise.event.NotificationOptions;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -45,7 +46,7 @@ public class OperationsResource {
 	}
 
 	
-	@PUT
+	@POST
 	@Metered
 	public CompletionStage<Void> add(Operation operation) {
 		return this.incomingOperation.fireAsync(factory.initialize(operation), NotificationOptions.ofExecutor(executor))

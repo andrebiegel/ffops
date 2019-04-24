@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -35,10 +36,10 @@ public class FiremenRessource {
 	 */
 	@GET
 	public CompletionStage<List<FireMen>> firemens() {
-		return CompletableFuture.supplyAsync(this.store::firemens);
+		return CompletableFuture.supplyAsync(this.store::firemens,executor);
 	}
 	
-	@PUT
+	@POST
 	public FireMen add(FireMen collegue) {
 		FireMen initalized = factory.initialize(collegue);
 		store.add(initalized);
