@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mvn clean package && docker build -t abiegel/operations-backend -f Dockerfile .
+mvn clean package && docker build -t abiegel/operations-management -f Dockerfile .
