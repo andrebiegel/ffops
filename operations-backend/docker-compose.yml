@@ -7,10 +7,9 @@ services:
       dockerfile: Dockerfile
       labels: [FOO=BAR]
     healthcheck:
-      test: curl -f http://localhost:8080/health | exit 1
+      test: curl -f http://localhost:8080/health || exit 1
       interval: 30s
-      timeout: 1s
-      retries: 5
+      retries: 7
     ports:
       - "8080:8080"
 
