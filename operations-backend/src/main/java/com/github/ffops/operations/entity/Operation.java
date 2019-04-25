@@ -52,5 +52,4 @@ public class Operation {
 		this.id = id;
 	}
 
-
 }

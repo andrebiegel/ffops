@@ -14,14 +14,14 @@ import com.github.ffops.firemen.entity.FireMen;
 public class FireMenStore {
 
 	private List<FireMen> store;
-	
+
 	@PostConstruct
 	public void init() {
 		store = new ArrayList<>();
 	}
-	
+
 	@Gauge(unit = "count")
-	public int amount () {
+	public int amount() {
 		return this.store.size();
 	}
 
@@ -31,11 +31,11 @@ public class FireMenStore {
 
 	/**
 	 * add a {@link FireMen} which already a personal number assigned
+	 * 
 	 * @param initialized
 	 */
 	public void add(FireMen initialized) {
 		this.store.add(initialized);
-		
-		
+
 	}
 }

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Generated;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 
@@ -20,25 +19,26 @@ import com.github.ffops.operations.entity.Operation;
 public class OperationStore {
 
 	private List<Operation> store;
-	
+
 	@PostConstruct
 	public void init() {
 		store = new ArrayList<>();
 	}
-	
-	@CircuitBreaker (failOn = IOException.class)
+
+	@CircuitBreaker(failOn = IOException.class)
 	@Bulkhead
 	@Fallback(fallbackMethod = "storeFallback")
 	@Retry(maxRetries = 3)
-	public void store (Operation op) {
+	public void store(Operation op) {
 		this.store.add(op);
 	}
 
 	public void storeFallback(Operation op) {
 		this.store.add(op);
 	}
+
 	@Gauge(unit = "count")
-	public int amount () {
+	public int amount() {
 		return this.store.size();
 	}
 

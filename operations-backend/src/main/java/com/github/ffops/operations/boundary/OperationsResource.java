@@ -11,7 +11,6 @@ import javax.enterprise.event.NotificationOptions;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -45,7 +44,6 @@ public class OperationsResource {
 		return CompletableFuture.supplyAsync(store::operations, executor);
 	}
 
-	
 	@POST
 	@Metered
 	public CompletionStage<Void> add(Operation operation) {

@@ -9,7 +9,6 @@ import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -22,23 +21,23 @@ import com.github.ffops.firemen.entity.FireMen;
 public class FiremenRessource {
 
 	@Inject
-	FireMenFactory factory; 
-	
+	FireMenFactory factory;
+
 	@Inject
 	FireMenStore store;
-	
+
 	@Resource
 	ManagedExecutorService executor;
-	
+
 	/**
 	 * Returns all existent firemen
 	 * 
 	 */
 	@GET
 	public CompletionStage<List<FireMen>> firemens() {
-		return CompletableFuture.supplyAsync(this.store::firemens,executor);
+		return CompletableFuture.supplyAsync(this.store::firemens, executor);
 	}
-	
+
 	@POST
 	public FireMen add(FireMen collegue) {
 		FireMen initalized = factory.initialize(collegue);

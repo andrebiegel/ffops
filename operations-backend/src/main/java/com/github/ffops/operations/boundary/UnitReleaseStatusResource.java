@@ -35,11 +35,11 @@ public class UnitReleaseStatusResource {
 
 	@Inject
 	MetricRegistry metricRegistry;
-	
+
 	@GET
 	@Metered
 	public CompletionStage<List<UnitReleaseStatus>> openOperations() {
-		return supplyAsync(this.store::alarms,executor);
+		return supplyAsync(this.store::alarms, executor);
 	}
 
 	@PUT
@@ -50,8 +50,7 @@ public class UnitReleaseStatusResource {
 		return CompletableFuture.supplyAsync(() -> this.store.fetchById(releasestatusId), executor)
 				.thenAccept(status -> status.participate(participationReport));
 	}
-	
-	
+
 	@PUT
 	@Path("release/{releasestatusId}/{radio-id}")
 	public CompletionStage<Void> releaseWithEngine(@PathParam("releasestatusId") String releasestatusId,
@@ -60,6 +59,5 @@ public class UnitReleaseStatusResource {
 		return CompletableFuture.supplyAsync(() -> this.store.fetchById(releasestatusId), executor)
 				.thenAccept(status -> status.releaseEngine(radioId));
 	}
-
 
 }

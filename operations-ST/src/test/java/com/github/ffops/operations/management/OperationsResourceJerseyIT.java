@@ -11,16 +11,16 @@ import javax.ws.rs.core.MediaType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class OperationsResourceIT {
+public class OperationsResourceJerseyIT {
 
-	private Client client;
-	private WebTarget tut;
+	private static Client client;
+	private static WebTarget tut;
 
 	@BeforeAll
-	public void init() {
+	public static void  init() {
 
-		this.client = ClientBuilder.newClient();
-		this.tut = this.client.target("http:localhost:8080/operations-management/resources/operation");
+		client = ClientBuilder.newClient();
+		tut = client.target("http:localhost:8080/operations-management/resources/operation");
 	}
 
 	/**

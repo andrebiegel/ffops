@@ -10,11 +10,12 @@ public class UnitReleaseStatus {
 			List<Participation> participations) {
 		return new UnitReleaseStatus(id, operation, participations);
 	}
-	private String id; 
-	private Operation operation; 
+
+	private String id;
+	private Operation operation;
 	private List<Participation> participations;
 	private List<ReleasedEngine> engines;
-	
+
 	private UnitReleaseStatus(String id, Operation operation, List<Participation> participations) {
 		super();
 		this.id = id;
@@ -26,25 +27,24 @@ public class UnitReleaseStatus {
 		this.participations.add(participation);
 	}
 
-	
-	
 	public List<ReleasedEngine> getEngines() {
 		return engines;
 	}
+
 	public String getId() {
 		return id;
 	}
-	
+
 	public Operation getOperation() {
 		return operation;
 	}
+
 	public List<Participation> getParticipations() {
 		return participations;
 	}
 
 	public void releaseEngine(String radioId) {
 		this.engines.add(ReleasedEngine.createReleasedEngine(radioId, RadioStatus.ACCEPTED));
-	} 
-	
-	
+	}
+
 }

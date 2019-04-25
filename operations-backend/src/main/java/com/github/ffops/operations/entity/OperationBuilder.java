@@ -31,7 +31,7 @@ public class OperationBuilder {
 	public Operation build() {
 		return new Operation(heading, alertingMessage, start, id);
 	}
-	
+
 	public static OperationBuilder operation() {
 		return new OperationBuilder();
 	}

@@ -9,7 +9,6 @@ import com.github.ffops.operations.entity.Operation;
 @ApplicationScoped
 public class OperationsFactory {
 
-
 	private String provideId() {
 		return UUID.randomUUID().toString();
 	}
